@@ -25,4 +25,5 @@ class Pet:
         self.weight = weight
         self.is_vaccine = is_vaccine
 
-    
+        if age <= 0:
+            raise ValueError("Возраст питомца, не может быть меньше или равным нулю")
