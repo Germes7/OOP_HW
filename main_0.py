@@ -27,3 +27,6 @@ class Pet:
 
         if age <= 0:
             raise ValueError("Возраст питомца, не может быть меньше или равным нулю")
+
+        if weight <= 0:
+            raise ValueError("Вес не может быть меньшим либо равным нулю")
