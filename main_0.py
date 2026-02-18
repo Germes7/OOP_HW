@@ -137,30 +137,37 @@ class Artifact:
 
 
 # Класс сущности
-class Individual_magic:
+# Статус в обществе, одежда, стаж, артефакт
+class IndividualMagic:
     society: str
-    witch: str
-    witcher: str
-    alchemist: str
+    cloth: str
+    experience: int
+    artifact: Artifact
 
-    def __init__(self, society: str, artefact: str, witcher: str, alchemist: str):
+    def __init__(self, society: str, cloth: str, experience: int, artifact: Artifact):
 
         self.society = society
-        self.witch = witch
-        self.witcher = witcher
-        self.alchemist = alchemist
+        self.cloth = cloth
+        self.experience = experience
+        self.artifact = artifact
 
     def action(self):
 
-        if self.wizard:
-            return f"{self.wizard} трах-тибедох_тит"
+        if self.society.lower() == "волшебник":
+            return f"{self.society} трах-тибедох_тит. Муж ведьмы"
 
-        elif self.witch:
-            return f"{self.witch} варит зелье"
+        elif self.society.lower() == "ведьма":
+            return f"{self.society} варит зелье. Жена волшебника"
 
-        elif self.witcher:
-            return f"{self.witcher} колдует"
+        elif self.society.lower() == "колдун":
+            return f"{self.society} колдует. Любовник ведьмы"
+
+        elif self.society.lower() == "алхимик":
+            return f"{self.society} наивный, пытается добыть философский камень. Мальчик для битья -для всех остальных"
 
         else:
-            return f"{self.alchemist} наивный, пытается добыть философский камень"
+            return f"{self.society} кто-то пришлый. Может даже волхв!"
+
+    def __str__(self):
+        return f"Член общества: {self.society} одет в {self.cloth}. Опыт {self.experience}, владеет {self.artifact}"
 
