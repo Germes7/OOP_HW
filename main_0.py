@@ -44,6 +44,7 @@ class Pet:
         if weight <= 0:
             raise ValueError("Вес не может быть меньшим либо равным нулю")
 
+# Метод звуков издаваемые животным
     def action(self):
 
         if self.view.lower() == "удав":
