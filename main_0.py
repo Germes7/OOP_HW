@@ -135,6 +135,9 @@ class Artifact:
         else:
             return f"{self.accessory} -официальная наука, умывает руки. Что с этим делать?!"
 
+    def __str__(self):
+        return f"Волшебный предмет: {self.accessory}. Сделан из {self.material} имеет силу {self.power}. Используется: {self.artifact_action()}"
+
 
 # Класс сущности
 # Статус в обществе, одежда, стаж, артефакт
@@ -169,4 +172,4 @@ class IndividualMagic:
             return f"{self.society} кто-то пришлый. Может даже волхв!"
 
     def __str__(self):
-        return f"Член общества: {self.society} одет в {self.cloth}. Опыт {self.experience}, владеет {self.artifact}"
+        return f"Член общества: {self.society} одет в {self.cloth}. Опыт {self.experience}, владеет {self.artifact}. Отношение в своем обществе {self.action()}"
