@@ -170,4 +170,3 @@ class IndividualMagic:
 
     def __str__(self):
         return f"Член общества: {self.society} одет в {self.cloth}. Опыт {self.experience}, владеет {self.artifact}"
-
