@@ -104,6 +104,9 @@ class Data:
         if not month > 0 and not month < 13:
             return  ValueError("Месяцев от 1 до 12")
 
+    def __str__(self):
+        return f"{self.day} дня, {self.month} месяца"
+
 # Класс Артефакт
 # название артефакта, материал, сила
 class Artifact:
