@@ -87,17 +87,65 @@ class Pet:
 # - Колдун: любовник ведьмы (на то она и ведьма)
 # - Алхимик: старый девственник. "Мальчик для битья" для ведьмы с колдуном
 
-# Класс Член общества
-class Society_member:
+# Класс Дата
+class Data:
 
-    wizard: str
+    day: int
+    month: int
+
+    def __init__(self, day: int, month: int):
+
+        self.day = day
+        self.month = month
+
+        if not day > 0 and not day < 32:
+            return ValueError("Дней в месяце должно быть больше нуля и меньше 31") #февраль и високосные года не рассматриваем (пока)
+
+        if not month > 0 and not month < 13:
+            return  ValueError("Месяцев от 1 до 12")
+
+# Класс Артефакт
+# название артефакта, материал, сила
+class Artifact:
+
+    accessory: str
+    material: str
+    power: str
+
+    def __init__(self, accessory: str, material: str, power: int):
+
+        self.accessory = accessory
+        self.material = material
+        self.power = power
+
+    def artifact_action(self):
+
+        if self.accessory.lower() == "волшебная палочка":
+            return f"{self.accessory} машет как умалишенный"
+
+        elif self.accessory.lower() == "котелок":
+            return f"{self.accessory} ставит на костер"
+
+        elif self.accessory.lower() == "посох":
+            return f"{self.accessory} может и по хребтине навернуть"
+
+        elif self.accessory.lower() == "реторта":
+            return f"{self.accessory} греется на Бунзеновской горелке"
+
+        else:
+            return f"{self.accessory} -официальная наука, умывает руки. Что с этим делать?!"
+
+
+# Класс сущности
+class Individual_magic:
+    society: str
     witch: str
     witcher: str
     alchemist: str
 
-    def __init__(self, wizard: str, witch: str, witcher: str, alchemist: str):
+    def __init__(self, society: str, artefact: str, witcher: str, alchemist: str):
 
-        self.wizard = wizard
+        self.society = society
         self.witch = witch
         self.witcher = witcher
         self.alchemist = alchemist
@@ -116,22 +164,3 @@ class Society_member:
         else:
             return f"{self.alchemist} наивный, пытается добыть философский камень"
 
-class Data:
-
-    day: int
-    month: int
-
-    def __init__(self, day: int, month: int):
-
-        self.day = day
-        self.month = month
-
-        if not day > 0 and not day < 32:
-            return ValueError("Дней в месяце должно быть больше нуля и меньше 31") #февраль и високосные года не рассматриваем (пока)
-
-        if not month > 0 and not month < 13:
-            return  ValueError("Месяцев от 1 до 12")
-
-        
-class Magical_entity:
-    pass
