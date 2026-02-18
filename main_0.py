@@ -87,3 +87,31 @@ class Pet:
 # - Колдун: любовник ведьмы (на то она и ведьма)
 # - Алхимик: старый девственник. "Мальчик для битья" для ведьмы с колдуном
 
+# Класс Член общества
+class Society_member:
+
+    wizard: str
+    witch: str
+    witcher: str
+    alchemist: str
+
+    def __init__(self, wizard: str, witch: str, witcher: str, alchemist: str):
+
+        self.wizard = wizard
+        self.witch = witch
+        self.witcher = witcher
+        self.alchemist = alchemist
+
+    def action(self):
+
+        if self.wizard:
+            return f"{self.wizard} трах-тибедох_тит"
+
+        elif self.witch:
+            return f"{self.witch} варит зелье"
+
+        elif self.witcher:
+            return f"{self.witcher} колдует"
+
+        else:
+            return f"{self.alchemist} наивный, пытается добыть философский камень"
