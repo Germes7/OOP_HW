@@ -115,3 +115,23 @@ class Society_member:
 
         else:
             return f"{self.alchemist} наивный, пытается добыть философский камень"
+
+class Data:
+
+    day: int
+    month: int
+
+    def __init__(self, day: int, month: int):
+
+        self.day = day
+        self.month = month
+
+        if not day > 0 and not day < 32:
+            return ValueError("Дней в месяце должно быть больше нуля и меньше 31") #февраль и високосные года не рассматриваем (пока)
+
+        if not month > 0 and not month < 13:
+            return  ValueError("Месяцев от 1 до 12")
+
+        
+class Magical_entity:
+    pass
