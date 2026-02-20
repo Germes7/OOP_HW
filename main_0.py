@@ -197,11 +197,24 @@ class IndividualMagic:
 # - Покупатель: покупает товар у продавца. Страстно желая скинуть цену на покупаемый товар
 # - Товар: опять-таки, просто жратва. Переходящая от Продавца к Покупателю.
 
+# Клас дата изготовления
+class Data:
+    day: int
+    month: int
 
+    def __init__(self, day: int, month: int):
+
+        self.day = day
+        self.month = month
+
+        if not day > 0 and not day < 32:
+            return ValueError("Дней в месяце должно быть больше нуля и меньше 31") #февраль и високосные года не рассматриваем (пока)
+
+        if not month > 0 and not month < 13:
+            return  ValueError("Месяцев от 1 до 12")
 
 # Клас Витрина (перечень)
 class Showcase:
-
     view: str
 
     def __init__(self, view: str):
@@ -212,6 +225,8 @@ class Showcase:
         return f"Отдел рынка с продукцией {self.view}."
 
 class Product:
+
+    def __init__(self, view=Showcase.view, quantity: str, data=Data):
 
 
 class Farmer:
