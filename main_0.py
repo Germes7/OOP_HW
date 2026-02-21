@@ -208,31 +208,64 @@ class Data:
         self.month = month
 
         if not day > 0 and not day < 32:
-            return ValueError("Дней в месяце должно быть больше нуля и меньше 31") #февраль и високосные года не рассматриваем (пока)
+            return ValueError("Дней в месяце должно быть больше нуля и меньше 31")  # февраль и високосные года не рассматриваем (пока)
 
         if not month > 0 and not month < 13:
-            return  ValueError("Месяцев от 1 до 12")
+            return ValueError("Месяцев от 1 до 12")
+
 
 # Клас Витрина (перечень)
 class Showcase:
-    view: str
+    vegetables: str
+    fruits: str
+    meat: str
+    milk: str
 
-    def __init__(self, view: str):
+    def __init__(self, vegetables="Овощи", fruits="Фрукты", meat="Мясо", milk="Молоко"):
+        self.vegetables = vegetables
+        self.fruits = fruits
+        self.meat = meat
+        self.milk = milk
 
-        self.view = view
 
     def __str__(self):
-        return f"Отдел рынка с продукцией {self.view}."
+        return f"отдел рынка с продукцией: {self.view}."
 
+# Количество, вид, дата: Продуктов
 class Product:
+    quantity: str
+    view: Showcase
+    data: Data
 
-    def __init__(self, view=Showcase.view, quantity: str, data=Data):
+    def __init__(self, quantity: str, view=Showcase, data=Data):
+        self.quantity = quantity
+        self.view = view
+        self.data = data
 
+    def quantity_product(self): # Проверка на количество продуктов
+        if self.quantity < 1:
+            return ValueError(f"Данный продукт {self.quantity}, закончился. Завезут завтра, мамой клянусь!")
 
+# Имя, возраст, ассортимент продуктов
 class Farmer:
-    pass
+    name: str
+    age: float
+    assortment: list
+
+    def __init__(self, name: str, age: float, assortment: list):
+        self.name = name
+        self.age = age
+        self.assortment = assortment
+
+    # метод добавления продуктов в корзину Фермера
+    def loading_products(self, product=Product.view):
+        if len(self.assortment) == 0:
+
+            self.assortment.append(product)
+
+
+
 
 class Buyer:
     pass
-
 
